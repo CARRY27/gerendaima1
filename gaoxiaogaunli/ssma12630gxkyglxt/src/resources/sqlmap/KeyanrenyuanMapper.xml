@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.spring.dao.KeyanrenyuanMapper">
+    <resultMap id="BaseResultMap" type="com.spring.entity.Keyanrenyuan">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+                            <result column="yonghuming" property="yonghuming" jdbcType="VARCHAR"/>
+                                    <result column="mima" property="mima" jdbcType="VARCHAR"/>
+                                    <result column="xingming" property="xingming" jdbcType="VARCHAR"/>
+                                    <result column="xingbie" property="xingbie" jdbcType="VARCHAR"/>
+                                    <result column="yuanxi" property="yuanxi" jdbcType="VARCHAR"/>
+                                    <result column="shouji" property="shouji" jdbcType="VARCHAR"/>
+                                    <result column="youxiang" property="youxiang" jdbcType="VARCHAR"/>
+                                    <result column="shenfenzheng" property="shenfenzheng" jdbcType="VARCHAR"/>
+                                    <result column="touxiang" property="touxiang" jdbcType="VARCHAR"/>
+                                
+    </resultMap>
+
+    <sql id="table">
+        keyanrenyuan    </sql>
+    <sql id="Base_Column_List">
+        id, yonghuming, mima, xingming, xingbie, yuanxi, shouji, youxiang, shenfenzheng, touxiang    </sql>
+        <select id="login" resultMap="BaseResultMap" parameterType="com.spring.entity.Keyanrenyuan">
+        select
+        <include refid="Base_Column_List"/>
+        from <include refid="table"/>
+        where yonghuming = #{yonghuming}
+        AND mima = #{mima}
+    </select>
+    
+
+    <select id="count" resultType="Integer" parameterType="com.spring.util.SelectExample">
+        SELECT COUNT(*) FROM
+        <include refid="table"/>
+        <where>
+            ${where}
+        </where>
+    </select>
+
+    <select id="selectAll" resultMap="BaseResultMap">
+        SELECT * FROM
+        <include refid="table"/>
+        <where>
+            ${where}
+        </where>
+        <if test="order != null">
+            order by ${order}
+        </if>
+    </select>
+
+
+    <select id="selectPage" resultMap="BaseResultMap">
+        SELECT * FROM
+        <include refid="table"/>
+        <where>
+            ${where}
+        </where>
+        <if test="order != null">
+            order by ${order}
+        </if>
+    </select>
+
+
+
+    <select id="find" resultMap="BaseResultMap" parameterType="com.spring.entity.Keyanrenyuan">
+        SELECT * FROM
+        <include refid="table"/>
+        where id = #{id}
+    </select>
+
+    <delete id="delete" parameterType="com.spring.entity.Keyanrenyuan">
+        DELETE FROM
+        <include refid="table"/>
+        where id = #{id}
+    </delete>
+
+    <update id="update" parameterType="com.spring.entity.Keyanrenyuan">
+        UPDATE
+        <include refid="table"/>
+        <set>
+                        <if test="yonghuming != null">
+                yonghuming = #{yonghuming},
+            </if>
+                        <if test="mima != null">
+                mima = #{mima},
+            </if>
+                        <if test="xingming != null">
+                xingming = #{xingming},
+            </if>
+                        <if test="xingbie != null">
+                xingbie = #{xingbie},
+            </if>
+                        <if test="yuanxi != null">
+                yuanxi = #{yuanxi},
+            </if>
+                        <if test="shouji != null">
+                shouji = #{shouji},
+            </if>
+                        <if test="youxiang != null">
+                youxiang = #{youxiang},
+            </if>
+                        <if test="shenfenzheng != null">
+                shenfenzheng = #{shenfenzheng},
+            </if>
+                        <if test="touxiang != null">
+                touxiang = #{touxiang},
+            </if>
+                    </set>
+        where id = #{id}
+    </update>
+        <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="com.spring.entity.Keyanrenyuan">
+        INSERT INTO
+        <include refid="table"/>
+        ( yonghuming , mima , xingming , xingbie , yuanxi , shouji , youxiang , shenfenzheng , touxiang ) values( #{yonghuming} , #{mima} , #{xingming} , #{xingbie} , #{yuanxi} , #{shouji} , #{youxiang} , #{shenfenzheng} , #{touxiang} )
+    </insert>
+
+</mapper>

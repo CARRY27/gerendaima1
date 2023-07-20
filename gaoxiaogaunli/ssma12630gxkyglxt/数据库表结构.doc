@@ -1,0 +1,1289 @@
+
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+      xmlns:w="urn:schemas-microsoft-com:office:word"
+      xmlns="http://www.w3.org/TR/REC-html40">
+<!--<html>-->
+<h3>&nbsp;
+    创建外键索引语句:
+</h3>
+
+<pre style="padding: 20px; display: block; background: #d5d5d5;font-size: 12px">
+;
+ALTER TABLE jingfei ADD FOREIGN KEY (xiangmuid) REFERENCES xiangmu(id) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE xiangmushenhe ADD FOREIGN KEY (xiangmuid) REFERENCES xiangmu(id) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE jingfeishenhe ADD FOREIGN KEY (jingfeiid) REFERENCES jingfei(id) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE xueshuhuodong ADD FOREIGN KEY (xiangmuid) REFERENCES xiangmu(id) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE keyankaohe ADD FOREIGN KEY (xiangmuid) REFERENCES xiangmu(id) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE wuzi ADD FOREIGN KEY (fenlei) REFERENCES wuzifenlei(id) ON UPDATE CASCADE ON DELETE CASCADE</pre>
+<p>&nbsp;</p>
+<table width=600 cellpadding="6" cellspacing="1" style="margin: 0 auto">
+    <tbody>
+    <tr>
+        <td colspan="3" bgcolor="#DEDEDE">
+            【管理员】模块,表名：<span style="color: #990000">admins</span>
+        </td>
+    </tr>
+    <tr>
+        <td>字段名</td>
+        <td>字段类型</td>
+        <td>名称</td>
+    </tr>
+        <tr>
+        <td>id</td>
+        <td>int</td>
+        <td> (主键)</td>
+    </tr>
+        <tr>
+        <td>username</td>
+        <td>varchar(50)</td>
+        <td>帐号 </td>
+    </tr>
+        <tr>
+        <td>pwd</td>
+        <td>varchar(50)</td>
+        <td>密码 </td>
+    </tr>
+    
+                    </tbody>
+</table>
+<p>&nbsp;</p>
+<table width=600 cellpadding="6" cellspacing="1" style="margin: 0 auto">
+    <tbody>
+    <tr>
+        <td colspan="3" bgcolor="#DEDEDE">
+            【科研人员】模块,表名：<span style="color: #990000">keyanrenyuan</span>
+        </td>
+    </tr>
+    <tr>
+        <td>字段名</td>
+        <td>字段类型</td>
+        <td>名称</td>
+    </tr>
+        <tr>
+        <td>id</td>
+        <td>int</td>
+        <td> (主键)</td>
+    </tr>
+        <tr>
+        <td>yonghuming</td>
+        <td>varchar(50)</td>
+        <td>用户名 </td>
+    </tr>
+        <tr>
+        <td>mima</td>
+        <td>varchar(50)</td>
+        <td>密码 </td>
+    </tr>
+        <tr>
+        <td>xingming</td>
+        <td>varchar(50)</td>
+        <td>姓名 </td>
+    </tr>
+        <tr>
+        <td>xingbie</td>
+        <td>varchar(10)</td>
+        <td>性别 </td>
+    </tr>
+        <tr>
+        <td>yuanxi</td>
+        <td>varchar(255)</td>
+        <td>院系 </td>
+    </tr>
+        <tr>
+        <td>shouji</td>
+        <td>varchar(50)</td>
+        <td>手机 </td>
+    </tr>
+        <tr>
+        <td>youxiang</td>
+        <td>varchar(50)</td>
+        <td>邮箱 </td>
+    </tr>
+        <tr>
+        <td>shenfenzheng</td>
+        <td>varchar(50)</td>
+        <td>身份证 </td>
+    </tr>
+        <tr>
+        <td>touxiang</td>
+        <td>varchar(255)</td>
+        <td>头像 </td>
+    </tr>
+    
+                    </tbody>
+</table>
+<p>&nbsp;</p>
+<table width=600 cellpadding="6" cellspacing="1" style="margin: 0 auto">
+    <tbody>
+    <tr>
+        <td colspan="3" bgcolor="#DEDEDE">
+            【经费】模块,表名：<span style="color: #990000">jingfei</span>
+        </td>
+    </tr>
+    <tr>
+        <td>字段名</td>
+        <td>字段类型</td>
+        <td>名称</td>
+    </tr>
+        <tr>
+        <td>id</td>
+        <td>int</td>
+        <td> (主键)</td>
+    </tr>
+        <tr>
+        <td>xiangmuid</td>
+        <td>int</td>
+        <td>项目id </td>
+    </tr>
+        <tr>
+        <td>xiangmubianhao</td>
+        <td>varchar(50)</td>
+        <td>项目编号 </td>
+    </tr>
+        <tr>
+        <td>xiangmumingcheng</td>
+        <td>varchar(255)</td>
+        <td>项目名称 </td>
+    </tr>
+        <tr>
+        <td>zhouqi</td>
+        <td>varchar(255)</td>
+        <td>周期 </td>
+    </tr>
+        <tr>
+        <td>hetong</td>
+        <td>varchar(255)</td>
+        <td>合同 </td>
+    </tr>
+        <tr>
+        <td>dangqianzonge</td>
+        <td>decimal(10, 2)</td>
+        <td>当前总额 </td>
+    </tr>
+        <tr>
+        <td>shangjieyu</td>
+        <td>decimal(10, 2)</td>
+        <td>尚结余 </td>
+    </tr>
+        <tr>
+        <td>shenqingjingfei</td>
+        <td>decimal(10, 2)</td>
+        <td>申请经费 </td>
+    </tr>
+        <tr>
+        <td>shenqingshiyongshijian</td>
+        <td>varchar(25)</td>
+        <td>申请使用时间 </td>
+    </tr>
+        <tr>
+        <td>shiyongkeyanjingfeiyuanyin</td>
+        <td>text</td>
+        <td>使用科研经费原因 </td>
+    </tr>
+        <tr>
+        <td>jingfeizhichusuoshu</td>
+        <td>text</td>
+        <td>经费支出所属 </td>
+    </tr>
+        <tr>
+        <td>zhuangtai</td>
+        <td>varchar(50)</td>
+        <td>状态 </td>
+    </tr>
+        <tr>
+        <td>shenqingren</td>
+        <td>varchar(64)</td>
+        <td>申请人 </td>
+    </tr>
+        <tr>
+        <td>addtime</td>
+        <td>timestamp </td>
+        <td>添加时间 </td>
+    </tr>
+    
+                                <tr>
+            <td colspan="3">
+                设置索引，
+                字段：xiangmuid ，
+                关联表【xiangmu】中字段id            </td>
+        </tr>
+                </tbody>
+</table>
+<p>&nbsp;</p>
+<table width=600 cellpadding="6" cellspacing="1" style="margin: 0 auto">
+    <tbody>
+    <tr>
+        <td colspan="3" bgcolor="#DEDEDE">
+            【项目】模块,表名：<span style="color: #990000">xiangmu</span>
+        </td>
+    </tr>
+    <tr>
+        <td>字段名</td>
+        <td>字段类型</td>
+        <td>名称</td>
+    </tr>
+        <tr>
+        <td>id</td>
+        <td>int</td>
+        <td> (主键)</td>
+    </tr>
+        <tr>
+        <td>xiangmubianhao</td>
+        <td>varchar(50)</td>
+        <td>项目编号 </td>
+    </tr>
+        <tr>
+        <td>xiangmumingcheng</td>
+        <td>varchar(255)</td>
+        <td>项目名称 </td>
+    </tr>
+        <tr>
+        <td>qiriqi</td>
+        <td>varchar(25)</td>
+        <td>起日期 </td>
+    </tr>
+        <tr>
+        <td>zhiriqi</td>
+        <td>varchar(25)</td>
+        <td>止日期 </td>
+    </tr>
+        <tr>
+        <td>chengguoxingshi</td>
+        <td>varchar(255)</td>
+        <td>成果形式 </td>
+    </tr>
+        <tr>
+        <td>kaifarenyuan</td>
+        <td>varchar(64)</td>
+        <td>开发人员 </td>
+    </tr>
+        <tr>
+        <td>kaifarenyuanxingming</td>
+        <td>varchar(50)</td>
+        <td>开发人员姓名 </td>
+    </tr>
+        <tr>
+        <td>shenqingjingfei</td>
+        <td>decimal(10, 2)</td>
+        <td>申请经费 </td>
+    </tr>
+        <tr>
+        <td>xiangmuzuzhuyaochengyuan</td>
+        <td>text</td>
+        <td>项目组主要成员 </td>
+    </tr>
+        <tr>
+        <td>xiangmuxiangqingshuoming</td>
+        <td>longtext</td>
+        <td>项目详情说明 </td>
+    </tr>
+        <tr>
+        <td>zhuangtai</td>
+        <td>varchar(50)</td>
+        <td>状态 </td>
+    </tr>
+        <tr>
+        <td>addtime</td>
+        <td>timestamp </td>
+        <td>添加时间 </td>
+    </tr>
+    
+                    </tbody>
+</table>
+<p>&nbsp;</p>
+<table width=600 cellpadding="6" cellspacing="1" style="margin: 0 auto">
+    <tbody>
+    <tr>
+        <td colspan="3" bgcolor="#DEDEDE">
+            【项目审核】模块,表名：<span style="color: #990000">xiangmushenhe</span>
+        </td>
+    </tr>
+    <tr>
+        <td>字段名</td>
+        <td>字段类型</td>
+        <td>名称</td>
+    </tr>
+        <tr>
+        <td>id</td>
+        <td>int</td>
+        <td> (主键)</td>
+    </tr>
+        <tr>
+        <td>xiangmuid</td>
+        <td>int</td>
+        <td>项目id </td>
+    </tr>
+        <tr>
+        <td>xiangmubianhao</td>
+        <td>varchar(50)</td>
+        <td>项目编号 </td>
+    </tr>
+        <tr>
+        <td>xiangmumingcheng</td>
+        <td>varchar(255)</td>
+        <td>项目名称 </td>
+    </tr>
+        <tr>
+        <td>kaifarenyuan</td>
+        <td>varchar(64)</td>
+        <td>开发人员 </td>
+    </tr>
+        <tr>
+        <td>kaifarenyuanxingming</td>
+        <td>varchar(50)</td>
+        <td>开发人员姓名 </td>
+    </tr>
+        <tr>
+        <td>shenhe</td>
+        <td>varchar(50)</td>
+        <td>审核 </td>
+    </tr>
+        <tr>
+        <td>beizhu</td>
+        <td>text</td>
+        <td>备注 </td>
+    </tr>
+        <tr>
+        <td>shenheren</td>
+        <td>varchar(50)</td>
+        <td>审核人 </td>
+    </tr>
+        <tr>
+        <td>addtime</td>
+        <td>timestamp </td>
+        <td>添加时间 </td>
+    </tr>
+    
+                                <tr>
+            <td colspan="3">
+                设置索引，
+                字段：xiangmuid ，
+                关联表【xiangmu】中字段id            </td>
+        </tr>
+                </tbody>
+</table>
+<p>&nbsp;</p>
+<table width=600 cellpadding="6" cellspacing="1" style="margin: 0 auto">
+    <tbody>
+    <tr>
+        <td colspan="3" bgcolor="#DEDEDE">
+            【经费审核】模块,表名：<span style="color: #990000">jingfeishenhe</span>
+        </td>
+    </tr>
+    <tr>
+        <td>字段名</td>
+        <td>字段类型</td>
+        <td>名称</td>
+    </tr>
+        <tr>
+        <td>id</td>
+        <td>int</td>
+        <td> (主键)</td>
+    </tr>
+        <tr>
+        <td>jingfeiid</td>
+        <td>int</td>
+        <td>经费id </td>
+    </tr>
+        <tr>
+        <td>xiangmubianhao</td>
+        <td>varchar(50)</td>
+        <td>项目编号 </td>
+    </tr>
+        <tr>
+        <td>xiangmumingcheng</td>
+        <td>varchar(255)</td>
+        <td>项目名称 </td>
+    </tr>
+        <tr>
+        <td>shenqingjingfei</td>
+        <td>decimal(10, 2)</td>
+        <td>申请经费 </td>
+    </tr>
+        <tr>
+        <td>dangqianzonge</td>
+        <td>decimal(10, 2)</td>
+        <td>当前总额 </td>
+    </tr>
+        <tr>
+        <td>shangjieyu</td>
+        <td>decimal(10, 2)</td>
+        <td>尚结余 </td>
+    </tr>
+        <tr>
+        <td>shenqingshiyongshijian</td>
+        <td>varchar(25)</td>
+        <td>申请使用时间 </td>
+    </tr>
+        <tr>
+        <td>shiyongkeyanjingfeiyuanyin</td>
+        <td>text</td>
+        <td>使用科研经费原因 </td>
+    </tr>
+        <tr>
+        <td>jingfeizhichusuoshu</td>
+        <td>text</td>
+        <td>经费支出所属 </td>
+    </tr>
+        <tr>
+        <td>shenqingren</td>
+        <td>varchar(64)</td>
+        <td>申请人 </td>
+    </tr>
+        <tr>
+        <td>shenhe</td>
+        <td>varchar(50)</td>
+        <td>审核 </td>
+    </tr>
+        <tr>
+        <td>beizhu</td>
+        <td>text</td>
+        <td>备注 </td>
+    </tr>
+        <tr>
+        <td>shenheren</td>
+        <td>varchar(64)</td>
+        <td>审核人 </td>
+    </tr>
+        <tr>
+        <td>addtime</td>
+        <td>timestamp </td>
+        <td>添加时间 </td>
+    </tr>
+    
+                                <tr>
+            <td colspan="3">
+                设置索引，
+                字段：jingfeiid ，
+                关联表【jingfei】中字段id            </td>
+        </tr>
+                </tbody>
+</table>
+<p>&nbsp;</p>
+<table width=600 cellpadding="6" cellspacing="1" style="margin: 0 auto">
+    <tbody>
+    <tr>
+        <td colspan="3" bgcolor="#DEDEDE">
+            【论文成果】模块,表名：<span style="color: #990000">lunwenchengguo</span>
+        </td>
+    </tr>
+    <tr>
+        <td>字段名</td>
+        <td>字段类型</td>
+        <td>名称</td>
+    </tr>
+        <tr>
+        <td>id</td>
+        <td>int</td>
+        <td> (主键)</td>
+    </tr>
+        <tr>
+        <td>lunwenbianhao</td>
+        <td>varchar(50)</td>
+        <td>论文编号 </td>
+    </tr>
+        <tr>
+        <td>lunwentimu</td>
+        <td>varchar(255)</td>
+        <td>论文题目 </td>
+    </tr>
+        <tr>
+        <td>diyizuozhe</td>
+        <td>varchar(50)</td>
+        <td>第一作者 </td>
+    </tr>
+        <tr>
+        <td>tongxunzuozhe</td>
+        <td>varchar(50)</td>
+        <td>通讯作者 </td>
+    </tr>
+        <tr>
+        <td>fabiaochubanshijian</td>
+        <td>varchar(50)</td>
+        <td>发表出版时间 </td>
+    </tr>
+        <tr>
+        <td>fabiaokanwulunwenji</td>
+        <td>varchar(50)</td>
+        <td>发表刊物论文集 </td>
+    </tr>
+        <tr>
+        <td>addtime</td>
+        <td>varchar(255)</td>
+        <td>刊物类型 </td>
+    </tr>
+        <tr>
+        <td>xuekefenlei</td>
+        <td>varchar(50)</td>
+        <td>学科分类 </td>
+    </tr>
+        <tr>
+        <td>juanhao</td>
+        <td>varchar(50)</td>
+        <td>卷号 </td>
+    </tr>
+        <tr>
+        <td>qihao</td>
+        <td>varchar(50)</td>
+        <td>期号 </td>
+    </tr>
+        <tr>
+        <td>zishu</td>
+        <td>varchar(50)</td>
+        <td>字数 </td>
+    </tr>
+        <tr>
+        <td>yemafanwei</td>
+        <td>varchar(50)</td>
+        <td>页码范围 </td>
+    </tr>
+        <tr>
+        <td>fujian</td>
+        <td>varchar(255)</td>
+        <td>附件 </td>
+    </tr>
+        <tr>
+        <td>jianjie</td>
+        <td>text</td>
+        <td>简介 </td>
+    </tr>
+        <tr>
+        <td>tianjiarenxingming</td>
+        <td>varchar(50)</td>
+        <td>添加人姓名 </td>
+    </tr>
+        <tr>
+        <td>tianjiaren</td>
+        <td>varchar(64)</td>
+        <td>添加人 </td>
+    </tr>
+        <tr>
+        <td>issh</td>
+        <td>varchar(10)</td>
+        <td>是否审核 </td>
+    </tr>
+    
+                    </tbody>
+</table>
+<p>&nbsp;</p>
+<table width=600 cellpadding="6" cellspacing="1" style="margin: 0 auto">
+    <tbody>
+    <tr>
+        <td colspan="3" bgcolor="#DEDEDE">
+            【著作成果】模块,表名：<span style="color: #990000">zhuzuochengguo</span>
+        </td>
+    </tr>
+    <tr>
+        <td>字段名</td>
+        <td>字段类型</td>
+        <td>名称</td>
+    </tr>
+        <tr>
+        <td>id</td>
+        <td>int</td>
+        <td> (主键)</td>
+    </tr>
+        <tr>
+        <td>zuozhexingming</td>
+        <td>varchar(50)</td>
+        <td>作者姓名 </td>
+    </tr>
+        <tr>
+        <td>zhuzuomingcheng</td>
+        <td>varchar(255)</td>
+        <td>著作名称 </td>
+    </tr>
+        <tr>
+        <td>xuekeleibie</td>
+        <td>varchar(50)</td>
+        <td>学科类别 </td>
+    </tr>
+        <tr>
+        <td>yituoxiangmu</td>
+        <td>text</td>
+        <td>依托项目 </td>
+    </tr>
+        <tr>
+        <td>zhuzuoshuzi</td>
+        <td>decimal(10, 2)</td>
+        <td>著作数字 </td>
+    </tr>
+        <tr>
+        <td>chubanshe</td>
+        <td>varchar(50)</td>
+        <td>出版社 </td>
+    </tr>
+        <tr>
+        <td>isbnhao</td>
+        <td>varchar(50)</td>
+        <td>ISBN号 </td>
+    </tr>
+        <tr>
+        <td>chubansheleibie</td>
+        <td>varchar(50)</td>
+        <td>出版社类别 </td>
+    </tr>
+        <tr>
+        <td>zhuzuoleibie</td>
+        <td>varchar(50)</td>
+        <td>著作类别 </td>
+    </tr>
+        <tr>
+        <td>fenzhi</td>
+        <td>varchar(50)</td>
+        <td>分值 </td>
+    </tr>
+        <tr>
+        <td>benrenpaixu</td>
+        <td>varchar(50)</td>
+        <td>本人排序 </td>
+    </tr>
+        <tr>
+        <td>shifoudiyizuozhe</td>
+        <td>varchar(50)</td>
+        <td>是否第一作者 </td>
+    </tr>
+        <tr>
+        <td>zhesuanhoufenzhi</td>
+        <td>int</td>
+        <td>折算后分值 </td>
+    </tr>
+        <tr>
+        <td>fenzhifenpei</td>
+        <td>int</td>
+        <td>分值分配 </td>
+    </tr>
+        <tr>
+        <td>guidanghao</td>
+        <td>varchar(50)</td>
+        <td>归档号 </td>
+    </tr>
+        <tr>
+        <td>beizhu</td>
+        <td>text</td>
+        <td>备注 </td>
+    </tr>
+        <tr>
+        <td>tianjiaren</td>
+        <td>varchar(64)</td>
+        <td>添加人 </td>
+    </tr>
+        <tr>
+        <td>addtime</td>
+        <td>timestamp </td>
+        <td>添加时间 </td>
+    </tr>
+        <tr>
+        <td>issh</td>
+        <td>varchar(10)</td>
+        <td>是否审核 </td>
+    </tr>
+    
+                    </tbody>
+</table>
+<p>&nbsp;</p>
+<table width=600 cellpadding="6" cellspacing="1" style="margin: 0 auto">
+    <tbody>
+    <tr>
+        <td colspan="3" bgcolor="#DEDEDE">
+            【获奖成果】模块,表名：<span style="color: #990000">huojiangchengguo</span>
+        </td>
+    </tr>
+    <tr>
+        <td>字段名</td>
+        <td>字段类型</td>
+        <td>名称</td>
+    </tr>
+        <tr>
+        <td>id</td>
+        <td>int</td>
+        <td> (主键)</td>
+    </tr>
+        <tr>
+        <td>chengguomingcheng</td>
+        <td>varchar(255)</td>
+        <td>成果名称 </td>
+    </tr>
+        <tr>
+        <td>huojiangjibie</td>
+        <td>varchar(50)</td>
+        <td>获奖级别 </td>
+    </tr>
+        <tr>
+        <td>huojiangdengji</td>
+        <td>varchar(50)</td>
+        <td>获奖等级 </td>
+    </tr>
+        <tr>
+        <td>huojiangchengyuan</td>
+        <td>varchar(255)</td>
+        <td>获奖成员 </td>
+    </tr>
+        <tr>
+        <td>pizhundanwei</td>
+        <td>varchar(255)</td>
+        <td>批准单位 </td>
+    </tr>
+        <tr>
+        <td>tianjiaren</td>
+        <td>varchar(64)</td>
+        <td>添加人 </td>
+    </tr>
+        <tr>
+        <td>addtime</td>
+        <td>timestamp </td>
+        <td>添加时间 </td>
+    </tr>
+        <tr>
+        <td>issh</td>
+        <td>varchar(10)</td>
+        <td>是否审核 </td>
+    </tr>
+    
+                    </tbody>
+</table>
+<p>&nbsp;</p>
+<table width=600 cellpadding="6" cellspacing="1" style="margin: 0 auto">
+    <tbody>
+    <tr>
+        <td colspan="3" bgcolor="#DEDEDE">
+            【专利成果】模块,表名：<span style="color: #990000">zhuanlichengguo</span>
+        </td>
+    </tr>
+    <tr>
+        <td>字段名</td>
+        <td>字段类型</td>
+        <td>名称</td>
+    </tr>
+        <tr>
+        <td>id</td>
+        <td>int</td>
+        <td> (主键)</td>
+    </tr>
+        <tr>
+        <td>chengguomingcheng</td>
+        <td>varchar(255)</td>
+        <td>成果名称 </td>
+    </tr>
+        <tr>
+        <td>chengguoleibie</td>
+        <td>varchar(50)</td>
+        <td>成果类别 </td>
+    </tr>
+        <tr>
+        <td>suoshuxueke</td>
+        <td>varchar(50)</td>
+        <td>所属学科 </td>
+    </tr>
+        <tr>
+        <td>yituoxiangmu</td>
+        <td>varchar(255)</td>
+        <td>依托项目 </td>
+    </tr>
+        <tr>
+        <td>zhuanlihao</td>
+        <td>varchar(50)</td>
+        <td>专利号 </td>
+    </tr>
+        <tr>
+        <td>zhuanlijishufenzhi</td>
+        <td>varchar(50)</td>
+        <td>专利技术分值 </td>
+    </tr>
+        <tr>
+        <td>benrenpaixu</td>
+        <td>varchar(50)</td>
+        <td>本人排序 </td>
+    </tr>
+        <tr>
+        <td>shifoudiyidanwei</td>
+        <td>varchar(50)</td>
+        <td>是否第一单位 </td>
+    </tr>
+        <tr>
+        <td>zhesuanhoufenzhi</td>
+        <td>int</td>
+        <td>折算后分值 </td>
+    </tr>
+        <tr>
+        <td>fenzhifenpei</td>
+        <td>int</td>
+        <td>分值分配 </td>
+    </tr>
+        <tr>
+        <td>beizhu</td>
+        <td>text</td>
+        <td>备注 </td>
+    </tr>
+        <tr>
+        <td>tianjiaren</td>
+        <td>varchar(64)</td>
+        <td>添加人 </td>
+    </tr>
+        <tr>
+        <td>addtime</td>
+        <td>timestamp </td>
+        <td>添加时间 </td>
+    </tr>
+        <tr>
+        <td>issh</td>
+        <td>varchar(10)</td>
+        <td>是否审核 </td>
+    </tr>
+    
+                    </tbody>
+</table>
+<p>&nbsp;</p>
+<table width=600 cellpadding="6" cellspacing="1" style="margin: 0 auto">
+    <tbody>
+    <tr>
+        <td colspan="3" bgcolor="#DEDEDE">
+            【鉴定成果】模块,表名：<span style="color: #990000">jiandingchengguo</span>
+        </td>
+    </tr>
+    <tr>
+        <td>字段名</td>
+        <td>字段类型</td>
+        <td>名称</td>
+    </tr>
+        <tr>
+        <td>id</td>
+        <td>int</td>
+        <td> (主键)</td>
+    </tr>
+        <tr>
+        <td>chengguomingcheng</td>
+        <td>varchar(255)</td>
+        <td>成果名称 </td>
+    </tr>
+        <tr>
+        <td>jiandinghao</td>
+        <td>varchar(50)</td>
+        <td>鉴定号 </td>
+    </tr>
+        <tr>
+        <td>jiandingxingshi</td>
+        <td>varchar(50)</td>
+        <td>鉴定形式 </td>
+    </tr>
+        <tr>
+        <td>jiandingdanwei</td>
+        <td>varchar(50)</td>
+        <td>鉴定单位 </td>
+    </tr>
+        <tr>
+        <td>jiandingriqi</td>
+        <td>varchar(50)</td>
+        <td>鉴定日期 </td>
+    </tr>
+        <tr>
+        <td>jiandingpizhunriqi</td>
+        <td>varchar(50)</td>
+        <td>鉴定批准日期 </td>
+    </tr>
+        <tr>
+        <td>beizhu</td>
+        <td>text</td>
+        <td>备注 </td>
+    </tr>
+        <tr>
+        <td>tianjiaren</td>
+        <td>varchar(64)</td>
+        <td>添加人 </td>
+    </tr>
+        <tr>
+        <td>addtime</td>
+        <td>timestamp </td>
+        <td>添加时间 </td>
+    </tr>
+        <tr>
+        <td>issh</td>
+        <td>varchar(10)</td>
+        <td>是否审核 </td>
+    </tr>
+    
+                    </tbody>
+</table>
+<p>&nbsp;</p>
+<table width=600 cellpadding="6" cellspacing="1" style="margin: 0 auto">
+    <tbody>
+    <tr>
+        <td colspan="3" bgcolor="#DEDEDE">
+            【创作成果】模块,表名：<span style="color: #990000">chuangzuochengguo</span>
+        </td>
+    </tr>
+    <tr>
+        <td>字段名</td>
+        <td>字段类型</td>
+        <td>名称</td>
+    </tr>
+        <tr>
+        <td>id</td>
+        <td>int</td>
+        <td> (主键)</td>
+    </tr>
+        <tr>
+        <td>niandu</td>
+        <td>varchar(50)</td>
+        <td>年度 </td>
+    </tr>
+        <tr>
+        <td>xueke</td>
+        <td>varchar(50)</td>
+        <td>学科 </td>
+    </tr>
+        <tr>
+        <td>huojiangzhe</td>
+        <td>varchar(50)</td>
+        <td>获奖者 </td>
+    </tr>
+        <tr>
+        <td>chengguomingcheng</td>
+        <td>varchar(255)</td>
+        <td>成果名称 </td>
+    </tr>
+        <tr>
+        <td>huojiangmingcheng</td>
+        <td>varchar(255)</td>
+        <td>获奖名称 </td>
+    </tr>
+        <tr>
+        <td>beizhu</td>
+        <td>text</td>
+        <td>备注 </td>
+    </tr>
+        <tr>
+        <td>tianjiaren</td>
+        <td>varchar(64)</td>
+        <td>添加人 </td>
+    </tr>
+        <tr>
+        <td>addtime</td>
+        <td>timestamp </td>
+        <td>添加时间 </td>
+    </tr>
+        <tr>
+        <td>issh</td>
+        <td>varchar(10)</td>
+        <td>是否审核 </td>
+    </tr>
+    
+                    </tbody>
+</table>
+<p>&nbsp;</p>
+<table width=600 cellpadding="6" cellspacing="1" style="margin: 0 auto">
+    <tbody>
+    <tr>
+        <td colspan="3" bgcolor="#DEDEDE">
+            【学术活动】模块,表名：<span style="color: #990000">xueshuhuodong</span>
+        </td>
+    </tr>
+    <tr>
+        <td>字段名</td>
+        <td>字段类型</td>
+        <td>名称</td>
+    </tr>
+        <tr>
+        <td>id</td>
+        <td>int</td>
+        <td> (主键)</td>
+    </tr>
+        <tr>
+        <td>xiangmuid</td>
+        <td>int</td>
+        <td>项目id </td>
+    </tr>
+        <tr>
+        <td>xiangmubianhao</td>
+        <td>varchar(50)</td>
+        <td>项目编号 </td>
+    </tr>
+        <tr>
+        <td>xiangmumingcheng</td>
+        <td>varchar(255)</td>
+        <td>项目名称 </td>
+    </tr>
+        <tr>
+        <td>qiriqi</td>
+        <td>varchar(25)</td>
+        <td>起日期 </td>
+    </tr>
+        <tr>
+        <td>zhiriqi</td>
+        <td>varchar(25)</td>
+        <td>止日期 </td>
+    </tr>
+        <tr>
+        <td>kaifarenyuan</td>
+        <td>varchar(64)</td>
+        <td>开发人员 </td>
+    </tr>
+        <tr>
+        <td>kaifarenyuanxingming</td>
+        <td>varchar(50)</td>
+        <td>开发人员姓名 </td>
+    </tr>
+        <tr>
+        <td>huodongshumu</td>
+        <td>int</td>
+        <td>学术活动数目 </td>
+    </tr>
+        <tr>
+        <td>beizhu</td>
+        <td>text</td>
+        <td>备注 </td>
+    </tr>
+        <tr>
+        <td>tianjiaren</td>
+        <td>varchar(64)</td>
+        <td>添加人 </td>
+    </tr>
+        <tr>
+        <td>addtime</td>
+        <td>timestamp </td>
+        <td>添加时间 </td>
+    </tr>
+    
+                                <tr>
+            <td colspan="3">
+                设置索引，
+                字段：xiangmuid ，
+                关联表【xiangmu】中字段id            </td>
+        </tr>
+                </tbody>
+</table>
+<p>&nbsp;</p>
+<table width=600 cellpadding="6" cellspacing="1" style="margin: 0 auto">
+    <tbody>
+    <tr>
+        <td colspan="3" bgcolor="#DEDEDE">
+            【科研考核】模块,表名：<span style="color: #990000">keyankaohe</span>
+        </td>
+    </tr>
+    <tr>
+        <td>字段名</td>
+        <td>字段类型</td>
+        <td>名称</td>
+    </tr>
+        <tr>
+        <td>id</td>
+        <td>int</td>
+        <td> (主键)</td>
+    </tr>
+        <tr>
+        <td>xiangmuid</td>
+        <td>int</td>
+        <td>项目id </td>
+    </tr>
+        <tr>
+        <td>xiangmubianhao</td>
+        <td>varchar(50)</td>
+        <td>项目编号 </td>
+    </tr>
+        <tr>
+        <td>xiangmumingcheng</td>
+        <td>varchar(255)</td>
+        <td>项目名称 </td>
+    </tr>
+        <tr>
+        <td>qiriqi</td>
+        <td>varchar(25)</td>
+        <td>起日期 </td>
+    </tr>
+        <tr>
+        <td>zhiriqi</td>
+        <td>varchar(25)</td>
+        <td>止日期 </td>
+    </tr>
+        <tr>
+        <td>chengguoxingshi</td>
+        <td>varchar(255)</td>
+        <td>成果形式 </td>
+    </tr>
+        <tr>
+        <td>kaifarenyuan</td>
+        <td>varchar(64)</td>
+        <td>开发人员 </td>
+    </tr>
+        <tr>
+        <td>kaifarenyuanxingming</td>
+        <td>varchar(50)</td>
+        <td>开发人员姓名 </td>
+    </tr>
+        <tr>
+        <td>kaohejieguo</td>
+        <td>text</td>
+        <td>考核结果 </td>
+    </tr>
+        <tr>
+        <td>huodejiangli</td>
+        <td>varchar(255)</td>
+        <td>获得奖励 </td>
+    </tr>
+        <tr>
+        <td>huodejifen</td>
+        <td>int</td>
+        <td>获得积分 </td>
+    </tr>
+        <tr>
+        <td>kaoheren</td>
+        <td>varchar(64)</td>
+        <td>考核人 </td>
+    </tr>
+    
+                                <tr>
+            <td colspan="3">
+                设置索引，
+                字段：xiangmuid ，
+                关联表【xiangmu】中字段id            </td>
+        </tr>
+                </tbody>
+</table>
+<p>&nbsp;</p>
+<table width=600 cellpadding="6" cellspacing="1" style="margin: 0 auto">
+    <tbody>
+    <tr>
+        <td colspan="3" bgcolor="#DEDEDE">
+            【物资】模块,表名：<span style="color: #990000">wuzi</span>
+        </td>
+    </tr>
+    <tr>
+        <td>字段名</td>
+        <td>字段类型</td>
+        <td>名称</td>
+    </tr>
+        <tr>
+        <td>id</td>
+        <td>int</td>
+        <td> (主键)</td>
+    </tr>
+        <tr>
+        <td>bianhao</td>
+        <td>varchar(50)</td>
+        <td>编号 </td>
+    </tr>
+        <tr>
+        <td>wuzimingcheng</td>
+        <td>varchar(255)</td>
+        <td>物资名称 </td>
+    </tr>
+        <tr>
+        <td>fenlei</td>
+        <td>int</td>
+        <td>分类 </td>
+    </tr>
+        <tr>
+        <td>kucunshuliang</td>
+        <td>int</td>
+        <td>库存数量 </td>
+    </tr>
+        <tr>
+        <td>wuziyongchu</td>
+        <td>text</td>
+        <td>物资用处 </td>
+    </tr>
+        <tr>
+        <td>miaoshu</td>
+        <td>text</td>
+        <td>描述 </td>
+    </tr>
+        <tr>
+        <td>caozuoren</td>
+        <td>varchar(64)</td>
+        <td>操作人 </td>
+    </tr>
+        <tr>
+        <td>addtime</td>
+        <td>timestamp </td>
+        <td>添加时间 </td>
+    </tr>
+    
+                                <tr>
+            <td colspan="3">
+                设置索引，
+                字段：fenlei ，
+                关联表【wuzifenlei】中的id 字段            </td>
+        </tr>
+                </tbody>
+</table>
+<p>&nbsp;</p>
+<table width=600 cellpadding="6" cellspacing="1" style="margin: 0 auto">
+    <tbody>
+    <tr>
+        <td colspan="3" bgcolor="#DEDEDE">
+            【物资分类】模块,表名：<span style="color: #990000">wuzifenlei</span>
+        </td>
+    </tr>
+    <tr>
+        <td>字段名</td>
+        <td>字段类型</td>
+        <td>名称</td>
+    </tr>
+        <tr>
+        <td>id</td>
+        <td>int</td>
+        <td> (主键)</td>
+    </tr>
+        <tr>
+        <td>fenleimingcheng</td>
+        <td>varchar(255)</td>
+        <td>分类名称 </td>
+    </tr>
+        <tr>
+        <td>addtime</td>
+        <td>timestamp </td>
+        <td>添加时间 </td>
+    </tr>
+    
+                    </tbody>
+</table>
+<p>&nbsp;</p>
+<table width=600 cellpadding="6" cellspacing="1" style="margin: 0 auto">
+    <tbody>
+    <tr>
+        <td colspan="3" bgcolor="#DEDEDE">
+            【通告】模块,表名：<span style="color: #990000">tonggao</span>
+        </td>
+    </tr>
+    <tr>
+        <td>字段名</td>
+        <td>字段类型</td>
+        <td>名称</td>
+    </tr>
+        <tr>
+        <td>id</td>
+        <td>int</td>
+        <td> (主键)</td>
+    </tr>
+        <tr>
+        <td>bianhao</td>
+        <td>varchar(50)</td>
+        <td>编号 </td>
+    </tr>
+        <tr>
+        <td>biaoti</td>
+        <td>varchar(255)</td>
+        <td>标题 </td>
+    </tr>
+        <tr>
+        <td>tupian</td>
+        <td>varchar(255)</td>
+        <td>图片 </td>
+    </tr>
+        <tr>
+        <td>neirong</td>
+        <td>longtext</td>
+        <td>内容 </td>
+    </tr>
+        <tr>
+        <td>faburen</td>
+        <td>varchar(64)</td>
+        <td>发布人 </td>
+    </tr>
+    
+                    </tbody>
+</table>
+<p>&nbsp;</p>
+
+
+</html>

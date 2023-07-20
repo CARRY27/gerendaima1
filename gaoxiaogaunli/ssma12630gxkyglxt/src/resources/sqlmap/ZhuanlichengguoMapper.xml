@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.spring.dao.ZhuanlichengguoMapper">
+    <resultMap id="BaseResultMap" type="com.spring.entity.Zhuanlichengguo">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+                            <result column="chengguomingcheng" property="chengguomingcheng" jdbcType="VARCHAR"/>
+                                    <result column="chengguoleibie" property="chengguoleibie" jdbcType="VARCHAR"/>
+                                    <result column="suoshuxueke" property="suoshuxueke" jdbcType="VARCHAR"/>
+                                    <result column="yituoxiangmu" property="yituoxiangmu" jdbcType="VARCHAR"/>
+                                    <result column="zhuanlihao" property="zhuanlihao" jdbcType="VARCHAR"/>
+                                    <result column="zhuanlijishufenzhi" property="zhuanlijishufenzhi" jdbcType="VARCHAR"/>
+                                    <result column="benrenpaixu" property="benrenpaixu" jdbcType="VARCHAR"/>
+                                    <result column="shifoudiyidanwei" property="shifoudiyidanwei" jdbcType="VARCHAR"/>
+                                    <result column="zhesuanhoufenzhi" property="zhesuanhoufenzhi" jdbcType="INTEGER"/>
+                                    <result column="fenzhifenpei" property="fenzhifenpei" jdbcType="INTEGER"/>
+                                    <result column="beizhu" property="beizhu" jdbcType="VARCHAR"/>
+                                    <result column="tianjiaren" property="tianjiaren" jdbcType="VARCHAR"/>
+                                    <result column="addtime" property="addtime" jdbcType="VARCHAR"/>
+                                    <result column="issh" property="issh" jdbcType="VARCHAR"/>
+                
+    </resultMap>
+
+    <sql id="table">
+        zhuanlichengguo    </sql>
+    <sql id="Base_Column_List">
+        id, chengguomingcheng, chengguoleibie, suoshuxueke, yituoxiangmu, zhuanlihao, zhuanlijishufenzhi, benrenpaixu, shifoudiyidanwei, zhesuanhoufenzhi, fenzhifenpei, beizhu, tianjiaren, addtime, issh    </sql>
+    
+
+    <select id="count" resultType="Integer" parameterType="com.spring.util.SelectExample">
+        SELECT COUNT(*) FROM
+        <include refid="table"/>
+        <where>
+            ${where}
+        </where>
+    </select>
+
+    <select id="selectAll" resultMap="BaseResultMap">
+        SELECT * FROM
+        <include refid="table"/>
+        <where>
+            ${where}
+        </where>
+        <if test="order != null">
+            order by ${order}
+        </if>
+    </select>
+
+
+    <select id="selectPage" resultMap="BaseResultMap">
+        SELECT * FROM
+        <include refid="table"/>
+        <where>
+            ${where}
+        </where>
+        <if test="order != null">
+            order by ${order}
+        </if>
+    </select>
+
+
+
+    <select id="find" resultMap="BaseResultMap" parameterType="com.spring.entity.Zhuanlichengguo">
+        SELECT * FROM
+        <include refid="table"/>
+        where id = #{id}
+    </select>
+
+    <delete id="delete" parameterType="com.spring.entity.Zhuanlichengguo">
+        DELETE FROM
+        <include refid="table"/>
+        where id = #{id}
+    </delete>
+
+    <update id="update" parameterType="com.spring.entity.Zhuanlichengguo">
+        UPDATE
+        <include refid="table"/>
+        <set>
+                        <if test="chengguomingcheng != null">
+                chengguomingcheng = #{chengguomingcheng},
+            </if>
+                        <if test="chengguoleibie != null">
+                chengguoleibie = #{chengguoleibie},
+            </if>
+                        <if test="suoshuxueke != null">
+                suoshuxueke = #{suoshuxueke},
+            </if>
+                        <if test="yituoxiangmu != null">
+                yituoxiangmu = #{yituoxiangmu},
+            </if>
+                        <if test="zhuanlihao != null">
+                zhuanlihao = #{zhuanlihao},
+            </if>
+                        <if test="zhuanlijishufenzhi != null">
+                zhuanlijishufenzhi = #{zhuanlijishufenzhi},
+            </if>
+                        <if test="benrenpaixu != null">
+                benrenpaixu = #{benrenpaixu},
+            </if>
+                        <if test="shifoudiyidanwei != null">
+                shifoudiyidanwei = #{shifoudiyidanwei},
+            </if>
+                        <if test="zhesuanhoufenzhi != null">
+                zhesuanhoufenzhi = #{zhesuanhoufenzhi},
+            </if>
+                        <if test="fenzhifenpei != null">
+                fenzhifenpei = #{fenzhifenpei},
+            </if>
+                        <if test="beizhu != null">
+                beizhu = #{beizhu},
+            </if>
+                        <if test="tianjiaren != null">
+                tianjiaren = #{tianjiaren},
+            </if>
+                        <if test="addtime != null">
+                addtime = #{addtime},
+            </if>
+                        <if test="issh != null">
+                issh = #{issh},
+            </if>
+                    </set>
+        where id = #{id}
+    </update>
+        <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="com.spring.entity.Zhuanlichengguo">
+        INSERT INTO
+        <include refid="table"/>
+        ( chengguomingcheng , chengguoleibie , suoshuxueke , yituoxiangmu , zhuanlihao , zhuanlijishufenzhi , benrenpaixu , shifoudiyidanwei , zhesuanhoufenzhi , fenzhifenpei , beizhu , tianjiaren , addtime , issh ) values( #{chengguomingcheng} , #{chengguoleibie} , #{suoshuxueke} , #{yituoxiangmu} , #{zhuanlihao} , #{zhuanlijishufenzhi} , #{benrenpaixu} , #{shifoudiyidanwei} , #{zhesuanhoufenzhi} , #{fenzhifenpei} , #{beizhu} , #{tianjiaren} , #{addtime} , #{issh} )
+    </insert>
+
+</mapper>

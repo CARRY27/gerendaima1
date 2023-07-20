@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.spring.dao.LunwenchengguoMapper">
+    <resultMap id="BaseResultMap" type="com.spring.entity.Lunwenchengguo">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+                            <result column="lunwenbianhao" property="lunwenbianhao" jdbcType="VARCHAR"/>
+                                    <result column="lunwentimu" property="lunwentimu" jdbcType="VARCHAR"/>
+                                    <result column="diyizuozhe" property="diyizuozhe" jdbcType="VARCHAR"/>
+                                    <result column="tongxunzuozhe" property="tongxunzuozhe" jdbcType="VARCHAR"/>
+                                    <result column="fabiaochubanshijian" property="fabiaochubanshijian" jdbcType="VARCHAR"/>
+                                    <result column="fabiaokanwulunwenji" property="fabiaokanwulunwenji" jdbcType="VARCHAR"/>
+                                    <result column="addtime" property="addtime" jdbcType="VARCHAR"/>
+                                    <result column="xuekefenlei" property="xuekefenlei" jdbcType="VARCHAR"/>
+                                    <result column="juanhao" property="juanhao" jdbcType="VARCHAR"/>
+                                    <result column="qihao" property="qihao" jdbcType="VARCHAR"/>
+                                    <result column="zishu" property="zishu" jdbcType="VARCHAR"/>
+                                    <result column="yemafanwei" property="yemafanwei" jdbcType="VARCHAR"/>
+                                    <result column="fujian" property="fujian" jdbcType="VARCHAR"/>
+                                    <result column="jianjie" property="jianjie" jdbcType="VARCHAR"/>
+                                    <result column="tianjiarenxingming" property="tianjiarenxingming" jdbcType="VARCHAR"/>
+                                    <result column="tianjiaren" property="tianjiaren" jdbcType="VARCHAR"/>
+                                    <result column="issh" property="issh" jdbcType="VARCHAR"/>
+                
+    </resultMap>
+
+    <sql id="table">
+        lunwenchengguo    </sql>
+    <sql id="Base_Column_List">
+        id, lunwenbianhao, lunwentimu, diyizuozhe, tongxunzuozhe, fabiaochubanshijian, fabiaokanwulunwenji, addtime, xuekefenlei, juanhao, qihao, zishu, yemafanwei, fujian, jianjie, tianjiarenxingming, tianjiaren, issh    </sql>
+    
+
+    <select id="count" resultType="Integer" parameterType="com.spring.util.SelectExample">
+        SELECT COUNT(*) FROM
+        <include refid="table"/>
+        <where>
+            ${where}
+        </where>
+    </select>
+
+    <select id="selectAll" resultMap="BaseResultMap">
+        SELECT * FROM
+        <include refid="table"/>
+        <where>
+            ${where}
+        </where>
+        <if test="order != null">
+            order by ${order}
+        </if>
+    </select>
+
+
+    <select id="selectPage" resultMap="BaseResultMap">
+        SELECT * FROM
+        <include refid="table"/>
+        <where>
+            ${where}
+        </where>
+        <if test="order != null">
+            order by ${order}
+        </if>
+    </select>
+
+
+
+    <select id="find" resultMap="BaseResultMap" parameterType="com.spring.entity.Lunwenchengguo">
+        SELECT * FROM
+        <include refid="table"/>
+        where id = #{id}
+    </select>
+
+    <delete id="delete" parameterType="com.spring.entity.Lunwenchengguo">
+        DELETE FROM
+        <include refid="table"/>
+        where id = #{id}
+    </delete>
+
+    <update id="update" parameterType="com.spring.entity.Lunwenchengguo">
+        UPDATE
+        <include refid="table"/>
+        <set>
+                        <if test="lunwenbianhao != null">
+                lunwenbianhao = #{lunwenbianhao},
+            </if>
+                        <if test="lunwentimu != null">
+                lunwentimu = #{lunwentimu},
+            </if>
+                        <if test="diyizuozhe != null">
+                diyizuozhe = #{diyizuozhe},
+            </if>
+                        <if test="tongxunzuozhe != null">
+                tongxunzuozhe = #{tongxunzuozhe},
+            </if>
+                        <if test="fabiaochubanshijian != null">
+                fabiaochubanshijian = #{fabiaochubanshijian},
+            </if>
+                        <if test="fabiaokanwulunwenji != null">
+                fabiaokanwulunwenji = #{fabiaokanwulunwenji},
+            </if>
+                        <if test="addtime != null">
+                addtime = #{addtime},
+            </if>
+                        <if test="xuekefenlei != null">
+                xuekefenlei = #{xuekefenlei},
+            </if>
+                        <if test="juanhao != null">
+                juanhao = #{juanhao},
+            </if>
+                        <if test="qihao != null">
+                qihao = #{qihao},
+            </if>
+                        <if test="zishu != null">
+                zishu = #{zishu},
+            </if>
+                        <if test="yemafanwei != null">
+                yemafanwei = #{yemafanwei},
+            </if>
+                        <if test="fujian != null">
+                fujian = #{fujian},
+            </if>
+                        <if test="jianjie != null">
+                jianjie = #{jianjie},
+            </if>
+                        <if test="tianjiarenxingming != null">
+                tianjiarenxingming = #{tianjiarenxingming},
+            </if>
+                        <if test="tianjiaren != null">
+                tianjiaren = #{tianjiaren},
+            </if>
+                        <if test="issh != null">
+                issh = #{issh},
+            </if>
+                    </set>
+        where id = #{id}
+    </update>
+        <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="com.spring.entity.Lunwenchengguo">
+        INSERT INTO
+        <include refid="table"/>
+        ( lunwenbianhao , lunwentimu , diyizuozhe , tongxunzuozhe , fabiaochubanshijian , fabiaokanwulunwenji , addtime , xuekefenlei , juanhao , qihao , zishu , yemafanwei , fujian , jianjie , tianjiarenxingming , tianjiaren , issh ) values( #{lunwenbianhao} , #{lunwentimu} , #{diyizuozhe} , #{tongxunzuozhe} , #{fabiaochubanshijian} , #{fabiaokanwulunwenji} , #{addtime} , #{xuekefenlei} , #{juanhao} , #{qihao} , #{zishu} , #{yemafanwei} , #{fujian} , #{jianjie} , #{tianjiarenxingming} , #{tianjiaren} , #{issh} )
+    </insert>
+
+</mapper>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.spring.dao.WuziMapper">
+    <resultMap id="BaseResultMap" type="com.spring.entity.Wuzi">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+                            <result column="bianhao" property="bianhao" jdbcType="VARCHAR"/>
+                                    <result column="wuzimingcheng" property="wuzimingcheng" jdbcType="VARCHAR"/>
+                                    <result column="fenlei" property="fenlei" jdbcType="VARCHAR"/>
+                                    <result column="kucunshuliang" property="kucunshuliang" jdbcType="INTEGER"/>
+                                    <result column="wuziyongchu" property="wuziyongchu" jdbcType="VARCHAR"/>
+                                    <result column="miaoshu" property="miaoshu" jdbcType="VARCHAR"/>
+                                    <result column="caozuoren" property="caozuoren" jdbcType="VARCHAR"/>
+                                    <result column="addtime" property="addtime" jdbcType="VARCHAR"/>
+                                
+    </resultMap>
+
+    <sql id="table">
+        wuzi    </sql>
+    <sql id="Base_Column_List">
+        id, bianhao, wuzimingcheng, fenlei, kucunshuliang, wuziyongchu, miaoshu, caozuoren, addtime    </sql>
+    
+
+    <select id="count" resultType="Integer" parameterType="com.spring.util.SelectExample">
+        SELECT COUNT(*) FROM
+        <include refid="table"/>
+        <where>
+            ${where}
+        </where>
+    </select>
+
+    <select id="selectAll" resultMap="BaseResultMap">
+        SELECT * FROM
+        <include refid="table"/>
+        <where>
+            ${where}
+        </where>
+        <if test="order != null">
+            order by ${order}
+        </if>
+    </select>
+
+
+    <select id="selectPage" resultMap="BaseResultMap">
+        SELECT * FROM
+        <include refid="table"/>
+        <where>
+            ${where}
+        </where>
+        <if test="order != null">
+            order by ${order}
+        </if>
+    </select>
+
+
+
+    <select id="find" resultMap="BaseResultMap" parameterType="com.spring.entity.Wuzi">
+        SELECT * FROM
+        <include refid="table"/>
+        where id = #{id}
+    </select>
+
+    <delete id="delete" parameterType="com.spring.entity.Wuzi">
+        DELETE FROM
+        <include refid="table"/>
+        where id = #{id}
+    </delete>
+
+    <update id="update" parameterType="com.spring.entity.Wuzi">
+        UPDATE
+        <include refid="table"/>
+        <set>
+                        <if test="bianhao != null">
+                bianhao = #{bianhao},
+            </if>
+                        <if test="wuzimingcheng != null">
+                wuzimingcheng = #{wuzimingcheng},
+            </if>
+                        <if test="fenlei != null">
+                fenlei = #{fenlei},
+            </if>
+                        <if test="kucunshuliang != null">
+                kucunshuliang = #{kucunshuliang},
+            </if>
+                        <if test="wuziyongchu != null">
+                wuziyongchu = #{wuziyongchu},
+            </if>
+                        <if test="miaoshu != null">
+                miaoshu = #{miaoshu},
+            </if>
+                        <if test="caozuoren != null">
+                caozuoren = #{caozuoren},
+            </if>
+                        <if test="addtime != null">
+                addtime = #{addtime},
+            </if>
+                    </set>
+        where id = #{id}
+    </update>
+        <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="com.spring.entity.Wuzi">
+        INSERT INTO
+        <include refid="table"/>
+        ( bianhao , wuzimingcheng , fenlei , kucunshuliang , wuziyongchu , miaoshu , caozuoren , addtime ) values( #{bianhao} , #{wuzimingcheng} , #{fenlei} , #{kucunshuliang} , #{wuziyongchu} , #{miaoshu} , #{caozuoren} , #{addtime} )
+    </insert>
+
+</mapper>

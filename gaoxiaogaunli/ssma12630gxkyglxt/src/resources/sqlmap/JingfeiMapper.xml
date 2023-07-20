@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.spring.dao.JingfeiMapper">
+    <resultMap id="BaseResultMap" type="com.spring.entity.Jingfei">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+                            <result column="xiangmuid" property="xiangmuid" jdbcType="INTEGER"/>
+                                    <result column="xiangmubianhao" property="xiangmubianhao" jdbcType="VARCHAR"/>
+                                    <result column="xiangmumingcheng" property="xiangmumingcheng" jdbcType="VARCHAR"/>
+                                    <result column="zhouqi" property="zhouqi" jdbcType="VARCHAR"/>
+                                    <result column="hetong" property="hetong" jdbcType="VARCHAR"/>
+                                    <result column="dangqianzonge" property="dangqianzonge" jdbcType="DECIMAL"/>
+                                    <result column="shangjieyu" property="shangjieyu" jdbcType="DECIMAL"/>
+                                    <result column="shenqingjingfei" property="shenqingjingfei" jdbcType="DECIMAL"/>
+                                    <result column="shenqingshiyongshijian" property="shenqingshiyongshijian" jdbcType="VARCHAR"/>
+                                    <result column="shiyongkeyanjingfeiyuanyin" property="shiyongkeyanjingfeiyuanyin" jdbcType="VARCHAR"/>
+                                    <result column="jingfeizhichusuoshu" property="jingfeizhichusuoshu" jdbcType="VARCHAR"/>
+                                    <result column="zhuangtai" property="zhuangtai" jdbcType="VARCHAR"/>
+                                    <result column="shenqingren" property="shenqingren" jdbcType="VARCHAR"/>
+                                    <result column="addtime" property="addtime" jdbcType="VARCHAR"/>
+                                
+    </resultMap>
+
+    <sql id="table">
+        jingfei    </sql>
+    <sql id="Base_Column_List">
+        id, xiangmuid, xiangmubianhao, xiangmumingcheng, zhouqi, hetong, dangqianzonge, shangjieyu, shenqingjingfei, shenqingshiyongshijian, shiyongkeyanjingfeiyuanyin, jingfeizhichusuoshu, zhuangtai, shenqingren, addtime    </sql>
+    
+
+    <select id="count" resultType="Integer" parameterType="com.spring.util.SelectExample">
+        SELECT COUNT(*) FROM
+        <include refid="table"/>
+        <where>
+            ${where}
+        </where>
+    </select>
+
+    <select id="selectAll" resultMap="BaseResultMap">
+        SELECT * FROM
+        <include refid="table"/>
+        <where>
+            ${where}
+        </where>
+        <if test="order != null">
+            order by ${order}
+        </if>
+    </select>
+
+
+    <select id="selectPage" resultMap="BaseResultMap">
+        SELECT * FROM
+        <include refid="table"/>
+        <where>
+            ${where}
+        </where>
+        <if test="order != null">
+            order by ${order}
+        </if>
+    </select>
+
+
+
+    <select id="find" resultMap="BaseResultMap" parameterType="com.spring.entity.Jingfei">
+        SELECT * FROM
+        <include refid="table"/>
+        where id = #{id}
+    </select>
+
+    <delete id="delete" parameterType="com.spring.entity.Jingfei">
+        DELETE FROM
+        <include refid="table"/>
+        where id = #{id}
+    </delete>
+
+    <update id="update" parameterType="com.spring.entity.Jingfei">
+        UPDATE
+        <include refid="table"/>
+        <set>
+                        <if test="xiangmuid != null">
+                xiangmuid = #{xiangmuid},
+            </if>
+                        <if test="xiangmubianhao != null">
+                xiangmubianhao = #{xiangmubianhao},
+            </if>
+                        <if test="xiangmumingcheng != null">
+                xiangmumingcheng = #{xiangmumingcheng},
+            </if>
+                        <if test="zhouqi != null">
+                zhouqi = #{zhouqi},
+            </if>
+                        <if test="hetong != null">
+                hetong = #{hetong},
+            </if>
+                        <if test="dangqianzonge != null">
+                dangqianzonge = #{dangqianzonge},
+            </if>
+                        <if test="shangjieyu != null">
+                shangjieyu = #{shangjieyu},
+            </if>
+                        <if test="shenqingjingfei != null">
+                shenqingjingfei = #{shenqingjingfei},
+            </if>
+                        <if test="shenqingshiyongshijian != null">
+                shenqingshiyongshijian = #{shenqingshiyongshijian},
+            </if>
+                        <if test="shiyongkeyanjingfeiyuanyin != null">
+                shiyongkeyanjingfeiyuanyin = #{shiyongkeyanjingfeiyuanyin},
+            </if>
+                        <if test="jingfeizhichusuoshu != null">
+                jingfeizhichusuoshu = #{jingfeizhichusuoshu},
+            </if>
+                        <if test="zhuangtai != null">
+                zhuangtai = #{zhuangtai},
+            </if>
+                        <if test="shenqingren != null">
+                shenqingren = #{shenqingren},
+            </if>
+                        <if test="addtime != null">
+                addtime = #{addtime},
+            </if>
+                    </set>
+        where id = #{id}
+    </update>
+        <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="com.spring.entity.Jingfei">
+        INSERT INTO
+        <include refid="table"/>
+        ( xiangmuid , xiangmubianhao , xiangmumingcheng , zhouqi , hetong , dangqianzonge , shangjieyu , shenqingjingfei , shenqingshiyongshijian , shiyongkeyanjingfeiyuanyin , jingfeizhichusuoshu , zhuangtai , shenqingren , addtime ) values( #{xiangmuid} , #{xiangmubianhao} , #{xiangmumingcheng} , #{zhouqi} , #{hetong} , #{dangqianzonge} , #{shangjieyu} , #{shenqingjingfei} , #{shenqingshiyongshijian} , #{shiyongkeyanjingfeiyuanyin} , #{jingfeizhichusuoshu} , #{zhuangtai} , #{shenqingren} , #{addtime} )
+    </insert>
+
+</mapper>
